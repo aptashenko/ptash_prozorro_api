@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-var cors = require('cors')
+const allowCors = require('./middlewares/allowCors')
 require('dotenv').config();
 
 const tenderRouter = require('./routes/tender');
 const filtersRouter = require('./routes/filters');
 
-app.use(cors())
+app.use(allowCors)
 
 app.use('/', tenderRouter);
 app.use('/', filtersRouter);
